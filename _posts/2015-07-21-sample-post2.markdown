@@ -185,3 +185,7 @@ I present to you CSG Restaurant. You have 3 choices starting with an assortment 
 I was not able to render all my features at once, and so the following is a 256x256 image with 16 shadow samples.
 
 <img src="assets/final_256_16_shadow_1_aa.png">
+
+# References
+Textures obtained from https://opengameart.org/content/50-free-textures-4-normalmaps
+Models obtained from https://www.cgtrader.com/items/635604
