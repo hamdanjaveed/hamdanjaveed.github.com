@@ -6,31 +6,108 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Jul 2017 02:44:22 -0400</pubDate>
-    <lastBuildDate>Fri, 21 Jul 2017 02:44:22 -0400</lastBuildDate>
+    <pubDate>Fri, 21 Jul 2017 05:52:26 -0400</pubDate>
+    <lastBuildDate>Fri, 21 Jul 2017 05:52:26 -0400</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>CS 488 Project Demo</title>
-        <description>&lt;h2 id=&quot;kd-trees-for-efficient-ray-intersections&quot;&gt;KD-trees for efficient ray intersections&lt;/h2&gt;
-&lt;p&gt;Made it faster&lt;/p&gt;
+        <description>&lt;h1 id=&quot;kd-trees-for-efficient-ray-intersections&quot;&gt;KD-trees for efficient ray intersections&lt;/h1&gt;
+&lt;div style=&quot;text-align: left;&quot;&gt;
+	Made it faster
+&lt;/div&gt;
 
-&lt;h2 id=&quot;refraction&quot;&gt;Refraction&lt;/h2&gt;
-&lt;video src=&quot;assets/refraction_balls.webm&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;p&gt;&lt;img min-width=&quot;260px&quot; src=&quot;assets/initial_profile.png&quot; /&gt;
+&lt;img min-width=&quot;260px&quot; src=&quot;assets/kd_tree_profile.png&quot; /&gt;
+&lt;img width=&quot;64%&quot; min-width=&quot;260px&quot; src=&quot;assets/sample.png&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;texture-mapping&quot;&gt;Texture mapping&lt;/h2&gt;
-&lt;video src=&quot;assets/texture_sphere.webm&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
-&lt;video src=&quot;assets/texture.webm&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;h1 id=&quot;refraction&quot;&gt;Refraction&lt;/h1&gt;
+&lt;p&gt;&lt;img width=&quot;64%&quot; src=&quot;assets/refraction_hiertest.png&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;bump-mapping&quot;&gt;Bump mapping&lt;/h2&gt;
-&lt;video id=&quot;cube_bump&quot; src=&quot;assets/cube_bump.webm&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video src=&quot;assets/refraction_balls.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
 
-&lt;h2 id=&quot;constructive-solid-geometry&quot;&gt;Constructive solid geometry&lt;/h2&gt;
-&lt;h2 id=&quot;additional-primitives&quot;&gt;Additional primitives&lt;/h2&gt;
-&lt;h2 id=&quot;depth-of-field&quot;&gt;Depth of field&lt;/h2&gt;
-&lt;h2 id=&quot;caustics&quot;&gt;Caustics&lt;/h2&gt;
-&lt;h2 id=&quot;soft-shadows&quot;&gt;Soft shadows&lt;/h2&gt;
-&lt;h2 id=&quot;anti-aliasing-using-supersampling-with-jittering&quot;&gt;Anti-aliasing using supersampling (with jittering)&lt;/h2&gt;
+&lt;h1 id=&quot;texture-mapping&quot;&gt;Texture mapping&lt;/h1&gt;
+&lt;video src=&quot;assets/texture_sphere.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video src=&quot;assets/texture.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+
+&lt;h1 id=&quot;bump-mapping&quot;&gt;Bump mapping&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/sphere_non_bump.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/sphere_bump.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/cylinder_non_bump.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/cylinder_bump.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/cone_non_bump.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/cone_bump.png&quot; /&gt;&lt;/p&gt;
+
+&lt;video src=&quot;assets/cube_bump.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+
+&lt;h1 id=&quot;constructive-solid-geometry&quot;&gt;Constructive solid geometry&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;260px&quot; src=&quot;assets/csg_001.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;260px&quot; src=&quot;assets/csg_002.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;260px&quot; src=&quot;assets/csg_003.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;260px&quot; src=&quot;assets/mesh_union.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;260px&quot; src=&quot;assets/mesh_subtract.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;260px&quot; src=&quot;assets/mesh_intersect.png&quot; /&gt;&lt;/p&gt;
+
+&lt;video src=&quot;assets/csg_teapot.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+
+&lt;h1 id=&quot;additional-primitives&quot;&gt;Additional primitives&lt;/h1&gt;
+&lt;div style=&quot;margin-bottom: 30px&quot;&gt;
+	&lt;div style=&quot;display: inline; min-width: 260px;&quot; width=&quot;49%&quot;&gt;
+		&lt;img style=&quot;margin: 0; display: inline; min-width: 260px; max-width: 392px;&quot; src=&quot;assets/sphere.png&quot; /&gt;
+	&lt;/div&gt;
+
+	&lt;video src=&quot;assets/cube.webm&quot; width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;/div&gt;
+
+&lt;video src=&quot;assets/cylinder.webm&quot; width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+
+&lt;video src=&quot;assets/cone.webm&quot; width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+
+&lt;h1 id=&quot;depth-of-field&quot;&gt;Depth of field&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/dof_samples_10_fd_3_0_ar_0_01.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/dof_samples_10_fd_3_0_ar_0_05.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/dof_samples_10_fd_3_0_ar_0_1.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/dof_samples_10_fd_3_0_ar_0_15.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;caustics&quot;&gt;Caustics&lt;/h1&gt;
+&lt;div style=&quot;text-align: left;&quot;&gt;
+	This objective was not attempted due to lack of time.
+&lt;/div&gt;
+
+&lt;h1 id=&quot;soft-shadows&quot;&gt;Soft shadows&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_0.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_1.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_4.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_9.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_16.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_25.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_64.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/soft_shadow_144.png&quot; /&gt;&lt;/p&gt;
+
+&lt;video src=&quot;assets/soft_shadow.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+
+&lt;h1 id=&quot;anti-aliasing-using-supersampling-with-jittering&quot;&gt;Anti-aliasing using supersampling (with jittering)&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/0_took_9_377s.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/2_took_35_393s.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;extra-adaptive-anti-aliasing&quot;&gt;Extra: Adaptive anti-aliasing&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/2_took_35_393s.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/adaptive_6_took_12_711s.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;64%&quot; src=&quot;assets/aa_diff_1_15_percent_different.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/aa_debug.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;extra-interpolation-between-vertex-normals&quot;&gt;Extra: Interpolation between vertex normals&lt;/h1&gt;
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/glass_faceted.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/glass_smooth.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/mug_flat.png&quot; /&gt;
+&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/mug_smooth.png&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 21 Jul 2015 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/tool/2015/07/21/sample-post2.html</link>
