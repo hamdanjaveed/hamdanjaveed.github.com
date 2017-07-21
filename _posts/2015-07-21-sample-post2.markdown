@@ -176,3 +176,12 @@ We can also see here that this works well with refractive materials.
 
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/mug_flat.png">
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/mug_smooth.png">
+
+# Final Scene
+I present to you CSG Restaurant. You have 3 choices starting with an assortment of chopped up primitives, a mug and a magic glass, and finally a cow with a chunk cut out of it and a die.
+
+<img src="assets/final_1024.png">
+
+I was not able to render all my features at once, and so the following is a 256x256 image with 16 shadow samples.
+
+<img src="assets/final_256_16_shadow_1_aa.png">
