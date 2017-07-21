@@ -9,14 +9,14 @@ categories: [tool]
 Made it faster
 
 ## Refraction
-<video src="assets/refraction_balls.webm" type="video/webm" loop autoplay></video>
+<video src="assets/refraction_balls.webm" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
 
 ## Texture mapping
-<video src="assets/texture_sphere.webm" type="video/webm" loop autoplay></video>
-<video src="assets/texture.webm" type="video/webm" loop autoplay></video>
+<video src="assets/texture_sphere.webm" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video src="assets/texture.webm" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
 
 ## Bump mapping
-<video id="cube_bump" src="assets/cube_bump.webm" type="video/webm" loop autoplay onended="var v = document.getElementById('cube_bump'); v.playbackRate = -v.playbackRate; v.play();"></video>
+<video id="cube_bump" src="assets/cube_bump.webm" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
 
 ## Constructive solid geometry
 ## Additional primitives
