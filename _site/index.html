@@ -118,24 +118,41 @@
 
 <div class="content">
     <h1 id="kd-trees-for-efficient-ray-intersections">KD-trees for efficient ray intersections</h1>
-<div style="text-align: left;">
-	Made it faster
-</div>
+<p>The ray tracer implemented in A4 was extremely slow at dealing with meshes. This is the trace for a scene with a macho cow.</p>
 
-<p><img min-width="260px" src="assets/initial_profile.png" />
-<img min-width="260px" src="assets/kd_tree_profile.png" />
-<img width="64%" min-width="260px" src="assets/sample.png" /></p>
+<p><img min-width="260px" src="assets/initial_profile.png" /></p>
+
+<p>A KD-tree data structure was used to organize the triangles in meshes. This allowed the <code class="highlighter-rouge">Mesh::intersect</code> function to skip a significant portion of the triangles in the mesh and only test for intersections with triangles that would have a chance of being hit.</p>
+
+<p>This reduced the rendering time from <strong>43s</strong> to <strong>6.5s</strong>.</p>
+
+<p><img min-width="260px" src="assets/kd_tree_profile.png" /></p>
+
+<p>This scene took about an hour to render using my A4 ray tracer, with this KD-tree implementation and multi-threading, it now takes 8 seconds.</p>
+
+<p><img width="64%" min-width="260px" src="assets/sample.png" /></p>
 
 <h1 id="refraction">Refraction</h1>
+<p>Both refractive objects are simulating water with an index of refraction of 1.33. Notice how the straw bends as it enters the water, and how the orb flips the scenery behind it.</p>
+
 <p><img width="64%" src="assets/refraction_hiertest.png" /></p>
+
+<p>Refraction was implemented using the vector form of Snell’s law. A transmitted ray is calculated using the incident ray along with the surface normal of the object.</p>
 
 <video src="assets/refraction_balls.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <h1 id="texture-mapping">Texture mapping</h1>
+<p>Sphere texture mapping is trivial, the zenith and azimuth angles are mapped to the range <code class="highlighter-rouge">[0, 1]</code>. That coordinate is then looked up in the raster file and interpolated.</p>
+
 <video src="assets/texture_sphere.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+
+<p>The cube gets the same texture among all faces. The cylinder and cone divide the raster file into thirds. The top third is for the top face, the middle third is for the bottom face and the final third is what gets “wrapped around” the primitive.</p>
+
 <video src="assets/texture.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <h1 id="bump-mapping">Bump mapping</h1>
+<p>Bump mapping is very similar in implementation to texture mapping except that instead of changing the diffuse color, the object’s normal is perturbed according to the <code class="highlighter-rouge">RGB</code> values specified in the raster file.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/sphere_non_bump.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/sphere_bump.png" /></p>
 
@@ -145,20 +162,30 @@
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/cone_non_bump.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/cone_bump.png" /></p>
 
+<p>Texture and bump mapping also work with reflective materials. Here the object has a reflectivity of 0.2. We can see the shine of the light as it crosses the cube. Since the normals of the cube face have been adjusted by the bump map, we get some cool patterns on the bricks.</p>
+
 <video src="assets/cube_bump.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <h1 id="constructive-solid-geometry">Constructive solid geometry</h1>
+<p>CSG was implemented by keeping a list of all intersections, and applying set operations on the ranges. Union is trivial. Subtraction works by subtracting the first range by the second. If the object was “sliced”, the intersection’s normal gets reversed and its material is set to the second object. This is how the colors of the materials below are set. Intersection is very similar to subtraction.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="260px" src="assets/csg_001.png" />
 <img style="display: inline-block; margin: 0;" width="260px" src="assets/csg_002.png" />
 <img style="display: inline-block; margin: 0;" width="260px" src="assets/csg_003.png" /></p>
+
+<p>CSG also works for meshes.</p>
 
 <p><img style="display: inline-block; margin: 0;" width="260px" src="assets/mesh_union.png" />
 <img style="display: inline-block; margin: 0;" width="260px" src="assets/mesh_subtract.png" />
 <img style="display: inline-block; margin: 0;" width="260px" src="assets/mesh_intersect.png" /></p>
 
+<p>Here, two teapots are moved into each other and are being intersected with each other.</p>
+
 <video src="assets/csg_teapot.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <h1 id="additional-primitives">Additional primitives</h1>
+<p>The two existing primitives were the sphere and cube. The images below display a diffuse material on the left, and then 4 reflective materials, each with an increasing reflectivity amount, with a reflectivity amount of 1 on the very right.</p>
+
 <div style="margin-bottom: 30px">
 	<div style="display: inline; min-width: 260px;" width="49%">
 		<img style="margin: 0; display: inline; min-width: 260px; max-width: 392px;" src="assets/sphere.png" />
@@ -167,11 +194,15 @@
 	<video src="assets/cube.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 </div>
 
+<p>The two new primitives are the cylinder and cone.</p>
+
 <video src="assets/cylinder.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <video src="assets/cone.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <h1 id="depth-of-field">Depth of field</h1>
+<p>Depth of field was implemented by essentially giving the camera an aperture. Multiple samples are taken at varying positions and then averaged. The following images show a widening aperture, starting at 0, and then increasing to 0.05, 0.1 and 0.15.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/dof_samples_10_fd_3_0_ar_0_01.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/dof_samples_10_fd_3_0_ar_0_05.png" /></p>
 
@@ -179,11 +210,11 @@
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/dof_samples_10_fd_3_0_ar_0_15.png" /></p>
 
 <h1 id="caustics">Caustics</h1>
-<div style="text-align: left;">
-	This objective was not attempted due to lack of time.
-</div>
+<p>Coming soon.</p>
 
 <h1 id="soft-shadows">Soft shadows</h1>
+<p>Soft shadows were implemented similarly to depth of field. An area light was introduced that allowed each point to sample multiple points on the light. By averaging all the samples, we achieve softer shadows. The following images show a point light, followed by soft shadows with 1, 4, 9, 16, 25, 64 and 144 samples.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/soft_shadow_0.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/soft_shadow_1.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/soft_shadow_4.png" />
@@ -193,23 +224,67 @@
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/soft_shadow_64.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/soft_shadow_144.png" /></p>
 
+<p>Here are the above images in a video format.</p>
+
 <video src="assets/soft_shadow.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
 
 <h1 id="anti-aliasing-using-supersampling-with-jittering">Anti-aliasing using supersampling (with jittering)</h1>
+<p>Anti-aliasing was implemented using the supersampling technique by increasing the number of rays casted per pixel. Below on the left is the original image with 1 ray per pixel, and on the right we have an image produced by casting 4 rays per pixel, and averaging their results. We can see that the image on the right appears smoother.</p>
+
+<p>This does come with a cost, the original image took <strong>9.377s</strong> to render while the anti-aliased image took <strong>35.393s</strong>.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/0_took_9_377s.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/2_took_35_393s.png" /></p>
 
 <h1 id="extra-adaptive-anti-aliasing">Extra: Adaptive anti-aliasing</h1>
+<p>For an extra objective, I implemented adaptive anti-aliasing. I found that having to cast an exponentially larger number of rays was too impractical to render. Adaptive anti-aliasing was implemented by iteratively figuring out which pixels are “bad” pixels, and only re-sampling those ones.</p>
+
+<p>On the left we have the fully anti-aliased image with 4 rays per pixel, and on the right we have an adaptive anti-aliased image that used at most 6 samples for some pixels. The one on the left took <strong>35.393s</strong> while the one on the right took <strong>12.711s</strong>.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/2_took_35_393s.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/adaptive_6_took_12_711s.png" /></p>
 
+<p>The two images do differ as highlighted by the pixels in yellow. However, on first glance they produce roughly the same image.</p>
+
 <p><img width="64%" src="assets/aa_diff_1_15_percent_different.png" /></p>
+
+<p>This debug image gives a better idea of how the adaptive anti-aliasing works. Notice how the anti-aliasing is mostly done on edges, the pixels that need it the most. The following is a legend that shows what color corresponds to how many samples that pixel had:</p>
+
+<div style="text-align: left;">
+	<ul>
+	<li>
+	Black = 1 sample
+	</li>
+	<li>
+	White = 2 samples
+	</li>
+	<li>
+	Yellow = 3 samples
+	</li>
+	<li>
+	Blue = 4 samples
+	</li>
+	<li>
+	Greed = 5 samples
+	</li>
+	<li>
+	Purple = 6 samples
+	</li>
+	<li>
+	Red = 7+ samples
+	</li>
+	</ul>
+</div>
 
 <p><img src="assets/aa_debug.png" /></p>
 
 <h1 id="extra-interpolation-between-vertex-normals">Extra: Interpolation between vertex normals</h1>
+<p>When reading in an <code class="highlighter-rouge">.obj</code> file, the <code class="highlighter-rouge">Mesh</code> class can now consume vertex normals. It then uses these normals to interpolate using barycentric coordinates the normal for an arbitrary point on a triangle. This produces smoother looking meshes.</p>
+
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/glass_faceted.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/glass_smooth.png" /></p>
+
+<p>We can also see here that this works well with refractive materials.</p>
 
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/mug_flat.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/mug_smooth.png" /></p>
