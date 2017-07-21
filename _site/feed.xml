@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Jul 2017 06:45:29 -0400</pubDate>
-    <lastBuildDate>Fri, 21 Jul 2017 06:45:29 -0400</lastBuildDate>
+    <pubDate>Fri, 21 Jul 2017 18:31:08 -0400</pubDate>
+    <lastBuildDate>Fri, 21 Jul 2017 18:31:08 -0400</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -34,16 +34,25 @@
 
 &lt;p&gt;Refraction was implemented using the vector form of Snell’s law. A transmitted ray is calculated using the incident ray along with the surface normal of the object.&lt;/p&gt;
 
-&lt;video src=&quot;assets/refraction_balls.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/refraction_balls.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/refraction_balls.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;h1 id=&quot;texture-mapping&quot;&gt;Texture mapping&lt;/h1&gt;
 &lt;p&gt;Sphere texture mapping is trivial, the zenith and azimuth angles are mapped to the range &lt;code class=&quot;highlighter-rouge&quot;&gt;[0, 1]&lt;/code&gt;. That coordinate is then looked up in the raster file and interpolated.&lt;/p&gt;
 
-&lt;video src=&quot;assets/texture_sphere.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/texture_sphere.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/texture_sphere.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;p&gt;The cube gets the same texture among all faces. The cylinder and cone divide the raster file into thirds. The top third is for the top face, the middle third is for the bottom face and the final third is what gets “wrapped around” the primitive.&lt;/p&gt;
 
-&lt;video src=&quot;assets/texture.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/texture.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/texture.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;h1 id=&quot;bump-mapping&quot;&gt;Bump mapping&lt;/h1&gt;
 &lt;p&gt;Bump mapping is very similar in implementation to texture mapping except that instead of changing the diffuse color, the object’s normal is perturbed according to the &lt;code class=&quot;highlighter-rouge&quot;&gt;RGB&lt;/code&gt; values specified in the raster file.&lt;/p&gt;
@@ -59,7 +68,10 @@
 
 &lt;p&gt;Texture and bump mapping also work with reflective materials. Here the object has a reflectivity of 0.2. We can see the shine of the light as it crosses the cube. Since the normals of the cube face have been adjusted by the bump map, we get some cool patterns on the bricks.&lt;/p&gt;
 
-&lt;video src=&quot;assets/cube_bump.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/cube_bump.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/cube_bump.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;h1 id=&quot;constructive-solid-geometry&quot;&gt;Constructive solid geometry&lt;/h1&gt;
 &lt;p&gt;CSG was implemented by keeping a list of all intersections, and applying set operations on the ranges. Union is trivial. Subtraction works by subtracting the first range by the second. If the object was “sliced”, the intersection’s normal gets reversed and its material is set to the second object. This is how the colors of the materials below are set. Intersection is very similar to subtraction.&lt;/p&gt;
@@ -76,7 +88,10 @@
 
 &lt;p&gt;Here, two teapots are moved into each other and are being intersected with each other.&lt;/p&gt;
 
-&lt;video src=&quot;assets/csg_teapot.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/csg_teapot.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/csg_teapot.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;h1 id=&quot;additional-primitives&quot;&gt;Additional primitives&lt;/h1&gt;
 &lt;p&gt;The two existing primitives were the sphere and cube. The images below display a diffuse material on the left, and then 4 reflective materials, each with an increasing reflectivity amount, with a reflectivity amount of 1 on the very right.&lt;/p&gt;
@@ -86,14 +101,23 @@
 		&lt;img style=&quot;margin: 0; display: inline; min-width: 260px; max-width: 392px;&quot; src=&quot;assets/sphere.png&quot; /&gt;
 	&lt;/div&gt;
 
-	&lt;video src=&quot;assets/cube.webm&quot; width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+	&lt;video width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+		&lt;source type=&quot;video/mp4&quot; src=&quot;assets/cube.mp4&quot; /&gt;
+		&lt;source type=&quot;video/webm&quot; src=&quot;assets/cube.webm&quot; /&gt;
+	&lt;/video&gt;
 &lt;/div&gt;
 
 &lt;p&gt;The two new primitives are the cylinder and cone.&lt;/p&gt;
 
-&lt;video src=&quot;assets/cylinder.webm&quot; width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/cylinder.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/cylinder.webm&quot; /&gt;
+&lt;/video&gt;
 
-&lt;video src=&quot;assets/cone.webm&quot; width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;49%&quot; style=&quot;min-width: 260px; display:inline-block;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/cone.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/cone.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;h1 id=&quot;depth-of-field&quot;&gt;Depth of field&lt;/h1&gt;
 &lt;p&gt;Depth of field was implemented by essentially giving the camera an aperture. Multiple samples are taken at varying positions and then averaged. The following images show a widening aperture, starting at 0, and then increasing to 0.05, 0.1 and 0.15.&lt;/p&gt;
@@ -121,7 +145,10 @@
 
 &lt;p&gt;Here are the above images in a video format.&lt;/p&gt;
 
-&lt;video src=&quot;assets/soft_shadow.webm&quot; width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;&lt;/video&gt;
+&lt;video width=&quot;64%&quot; style=&quot;min-width: 260px;&quot; type=&quot;video/webm&quot; loop=&quot;&quot; autoplay=&quot;&quot; onclick=&quot;this.paused ? this.play() : this.pause();&quot;&gt;
+	&lt;source type=&quot;video/mp4&quot; src=&quot;assets/soft_shadow.mp4&quot; /&gt;
+	&lt;source type=&quot;video/webm&quot; src=&quot;assets/soft_shadow.webm&quot; /&gt;
+&lt;/video&gt;
 
 &lt;h1 id=&quot;anti-aliasing-using-supersampling-with-jittering&quot;&gt;Anti-aliasing using supersampling (with jittering)&lt;/h1&gt;
 &lt;p&gt;Anti-aliasing was implemented using the supersampling technique by increasing the number of rays casted per pixel. Below on the left is the original image with 1 ray per pixel, and on the right we have an image produced by casting 4 rays per pixel, and averaging their results. We can see that the image on the right appears smoother.&lt;/p&gt;
@@ -183,6 +210,19 @@
 
 &lt;p&gt;&lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/mug_flat.png&quot; /&gt;
 &lt;img style=&quot;display: inline-block; margin: 0;&quot; width=&quot;395px&quot; min-width=&quot;260px&quot; src=&quot;assets/mug_smooth.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;final-scene&quot;&gt;Final Scene&lt;/h1&gt;
+&lt;p&gt;I present to you CSG Restaurant. You have 3 choices starting with an assortment of chopped up primitives, a mug and a magic glass, and finally a cow with a chunk cut out of it and a die.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/final_1024.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was not able to render all my features at once, and so the following is a 256x256 image with 16 shadow samples.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/final_256_16_shadow_1_aa.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;p&gt;Textures obtained from https://opengameart.org/content/50-free-textures-4-normalmaps
+Models obtained from https://www.cgtrader.com/items/635604&lt;/p&gt;
 </description>
         <pubDate>Tue, 21 Jul 2015 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/tool/2015/07/21/sample-post2.html</link>

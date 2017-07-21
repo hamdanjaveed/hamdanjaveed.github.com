@@ -27,16 +27,25 @@ Both refractive objects are simulating water with an index of refraction of 1.33
 
 Refraction was implemented using the vector form of Snell's law. A transmitted ray is calculated using the incident ray along with the surface normal of the object.
 
-<video src="assets/refraction_balls.webm" width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/refraction_balls.mp4" />
+	<source type="video/webm" src="assets/refraction_balls.webm" />
+</video>
 
 # Texture mapping
 Sphere texture mapping is trivial, the zenith and azimuth angles are mapped to the range `[0, 1]`. That coordinate is then looked up in the raster file and interpolated.
 
-<video src="assets/texture_sphere.webm" width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/texture_sphere.mp4" />
+	<source type="video/webm" src="assets/texture_sphere.webm" />
+</video>
 
 The cube gets the same texture among all faces. The cylinder and cone divide the raster file into thirds. The top third is for the top face, the middle third is for the bottom face and the final third is what gets "wrapped around" the primitive.
 
-<video src="assets/texture.webm" width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/texture.mp4" />
+	<source type="video/webm" src="assets/texture.webm" />
+</video>
 
 # Bump mapping
 Bump mapping is very similar in implementation to texture mapping except that instead of changing the diffuse color, the object's normal is perturbed according to the `RGB` values specified in the raster file.
@@ -52,7 +61,10 @@ Bump mapping is very similar in implementation to texture mapping except that in
 
 Texture and bump mapping also work with reflective materials. Here the object has a reflectivity of 0.2. We can see the shine of the light as it crosses the cube. Since the normals of the cube face have been adjusted by the bump map, we get some cool patterns on the bricks.
 
-<video src="assets/cube_bump.webm" width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/cube_bump.mp4" />
+	<source type="video/webm" src="assets/cube_bump.webm" />
+</video>
 
 # Constructive solid geometry
 CSG was implemented by keeping a list of all intersections, and applying set operations on the ranges. Union is trivial. Subtraction works by subtracting the first range by the second. If the object was "sliced", the intersection's normal gets reversed and its material is set to the second object. This is how the colors of the materials below are set. Intersection is very similar to subtraction.
@@ -69,7 +81,10 @@ CSG also works for meshes.
 
 Here, two teapots are moved into each other and are being intersected with each other.
 
-<video src="assets/csg_teapot.webm" width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/csg_teapot.mp4" />
+	<source type="video/webm" src="assets/csg_teapot.webm" />
+</video>
 
 # Additional primitives
 The two existing primitives were the sphere and cube. The images below display a diffuse material on the left, and then 4 reflective materials, each with an increasing reflectivity amount, with a reflectivity amount of 1 on the very right.
@@ -79,14 +94,23 @@ The two existing primitives were the sphere and cube. The images below display a
 		<img style="margin: 0; display: inline; min-width: 260px; max-width: 392px;" src="assets/sphere.png">
 	</div>
 
-	<video src="assets/cube.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+	<video width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+		<source type="video/mp4" src="assets/cube.mp4" />
+		<source type="video/webm" src="assets/cube.webm" />
+	</video>
 </div>
 
 The two new primitives are the cylinder and cone.
 
-<video src="assets/cylinder.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/cylinder.mp4" />
+	<source type="video/webm" src="assets/cylinder.webm" />
+</video>
 
-<video src="assets/cone.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/cone.mp4" />
+	<source type="video/webm" src="assets/cone.webm" />
+</video>
 
 # Depth of field
 Depth of field was implemented by essentially giving the camera an aperture. Multiple samples are taken at varying positions and then averaged. The following images show a widening aperture, starting at 0, and then increasing to 0.05, 0.1 and 0.15.
@@ -114,7 +138,10 @@ Soft shadows were implemented similarly to depth of field. An area light was int
 
 Here are the above images in a video format.
 
-<video src="assets/soft_shadow.webm" width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop autoplay onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/soft_shadow.mp4" />
+	<source type="video/webm" src="assets/soft_shadow.webm" />
+</video>
 
 # Anti-aliasing using supersampling (with jittering)
 Anti-aliasing was implemented using the supersampling technique by increasing the number of rays casted per pixel. Below on the left is the original image with 1 ray per pixel, and on the right we have an image produced by casting 4 rays per pixel, and averaging their results. We can see that the image on the right appears smoother.

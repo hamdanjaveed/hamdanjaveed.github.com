@@ -139,16 +139,25 @@
 
 <p>Refraction was implemented using the vector form of Snell’s law. A transmitted ray is calculated using the incident ray along with the surface normal of the object.</p>
 
-<video src="assets/refraction_balls.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/refraction_balls.mp4" />
+	<source type="video/webm" src="assets/refraction_balls.webm" />
+</video>
 
 <h1 id="texture-mapping">Texture mapping</h1>
 <p>Sphere texture mapping is trivial, the zenith and azimuth angles are mapped to the range <code class="highlighter-rouge">[0, 1]</code>. That coordinate is then looked up in the raster file and interpolated.</p>
 
-<video src="assets/texture_sphere.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/texture_sphere.mp4" />
+	<source type="video/webm" src="assets/texture_sphere.webm" />
+</video>
 
 <p>The cube gets the same texture among all faces. The cylinder and cone divide the raster file into thirds. The top third is for the top face, the middle third is for the bottom face and the final third is what gets “wrapped around” the primitive.</p>
 
-<video src="assets/texture.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/texture.mp4" />
+	<source type="video/webm" src="assets/texture.webm" />
+</video>
 
 <h1 id="bump-mapping">Bump mapping</h1>
 <p>Bump mapping is very similar in implementation to texture mapping except that instead of changing the diffuse color, the object’s normal is perturbed according to the <code class="highlighter-rouge">RGB</code> values specified in the raster file.</p>
@@ -164,7 +173,10 @@
 
 <p>Texture and bump mapping also work with reflective materials. Here the object has a reflectivity of 0.2. We can see the shine of the light as it crosses the cube. Since the normals of the cube face have been adjusted by the bump map, we get some cool patterns on the bricks.</p>
 
-<video src="assets/cube_bump.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/cube_bump.mp4" />
+	<source type="video/webm" src="assets/cube_bump.webm" />
+</video>
 
 <h1 id="constructive-solid-geometry">Constructive solid geometry</h1>
 <p>CSG was implemented by keeping a list of all intersections, and applying set operations on the ranges. Union is trivial. Subtraction works by subtracting the first range by the second. If the object was “sliced”, the intersection’s normal gets reversed and its material is set to the second object. This is how the colors of the materials below are set. Intersection is very similar to subtraction.</p>
@@ -181,7 +193,10 @@
 
 <p>Here, two teapots are moved into each other and are being intersected with each other.</p>
 
-<video src="assets/csg_teapot.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/csg_teapot.mp4" />
+	<source type="video/webm" src="assets/csg_teapot.webm" />
+</video>
 
 <h1 id="additional-primitives">Additional primitives</h1>
 <p>The two existing primitives were the sphere and cube. The images below display a diffuse material on the left, and then 4 reflective materials, each with an increasing reflectivity amount, with a reflectivity amount of 1 on the very right.</p>
@@ -191,14 +206,23 @@
 		<img style="margin: 0; display: inline; min-width: 260px; max-width: 392px;" src="assets/sphere.png" />
 	</div>
 
-	<video src="assets/cube.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+	<video width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+		<source type="video/mp4" src="assets/cube.mp4" />
+		<source type="video/webm" src="assets/cube.webm" />
+	</video>
 </div>
 
 <p>The two new primitives are the cylinder and cone.</p>
 
-<video src="assets/cylinder.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/cylinder.mp4" />
+	<source type="video/webm" src="assets/cylinder.webm" />
+</video>
 
-<video src="assets/cone.webm" width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="49%" style="min-width: 260px; display:inline-block;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/cone.mp4" />
+	<source type="video/webm" src="assets/cone.webm" />
+</video>
 
 <h1 id="depth-of-field">Depth of field</h1>
 <p>Depth of field was implemented by essentially giving the camera an aperture. Multiple samples are taken at varying positions and then averaged. The following images show a widening aperture, starting at 0, and then increasing to 0.05, 0.1 and 0.15.</p>
@@ -226,7 +250,10 @@
 
 <p>Here are the above images in a video format.</p>
 
-<video src="assets/soft_shadow.webm" width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();"></video>
+<video width="64%" style="min-width: 260px;" type="video/webm" loop="" autoplay="" onclick="this.paused ? this.play() : this.pause();">
+	<source type="video/mp4" src="assets/soft_shadow.mp4" />
+	<source type="video/webm" src="assets/soft_shadow.webm" />
+</video>
 
 <h1 id="anti-aliasing-using-supersampling-with-jittering">Anti-aliasing using supersampling (with jittering)</h1>
 <p>Anti-aliasing was implemented using the supersampling technique by increasing the number of rays casted per pixel. Below on the left is the original image with 1 ray per pixel, and on the right we have an image produced by casting 4 rays per pixel, and averaging their results. We can see that the image on the right appears smoother.</p>
@@ -288,6 +315,19 @@
 
 <p><img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/mug_flat.png" />
 <img style="display: inline-block; margin: 0;" width="395px" min-width="260px" src="assets/mug_smooth.png" /></p>
+
+<h1 id="final-scene">Final Scene</h1>
+<p>I present to you CSG Restaurant. You have 3 choices starting with an assortment of chopped up primitives, a mug and a magic glass, and finally a cow with a chunk cut out of it and a die.</p>
+
+<p><img src="assets/final_1024.png" /></p>
+
+<p>I was not able to render all my features at once, and so the following is a 256x256 image with 16 shadow samples.</p>
+
+<p><img src="assets/final_256_16_shadow_1_aa.png" /></p>
+
+<h1 id="references">References</h1>
+<p>Textures obtained from https://opengameart.org/content/50-free-textures-4-normalmaps
+Models obtained from https://www.cgtrader.com/items/635604</p>
 
 </div>
 
