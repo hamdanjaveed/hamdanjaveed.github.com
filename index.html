@@ -1,12 +1,13 @@
-<html>
-<head>
-	<title> Hamdan Javeed </title>
-	
-	<link href="css/styles.css" type="text/css" rel="stylesheet" />
-</head>
+---
+layout: page
+title: Blog
+subtitle: Hitchhiker's guid to web development
+sitemap:
+  priority: 0.9
+---
 
-<body>
-	<h1> Hamdan Javeed </h1>
-	<p>GitHub test</p>
-</body>
-</html>
+<ul class="list-posts">
+    {% for post in site.posts %}
+    	{{ post }}
+    {% endfor %}
+</ul>
